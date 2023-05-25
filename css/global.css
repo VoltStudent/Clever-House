@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Lato:ital,wght@0,700;1,400&family=Rubik:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --div-background: yellow;
+    --hover-background: #00b4d8;
+    --button-color: blue;
+    --shadow-color: #749ac2;
+    --regulator-color: rgba(0, 0, 255, 1);
+    --backlight-color: yellow;
+    --checked-background: yellow;
+    background-image: url(../images/background.jpg);
+    font-family: "Andika";
+    text-align: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    color: #242837;
+    min-height: 100%;
+}
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}

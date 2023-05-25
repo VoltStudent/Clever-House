@@ -1,0 +1,60 @@
+.light__state {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background: radial-gradient(#000 10%, #ffff0035);
+  border-radius: 50%;
+  fill: #3cff00;
+}
+
+.light__backlight,
+.light__circle {
+  fill: transparent;
+  stroke: var(--backlight-color);
+  stroke-width: 2px;
+  stroke-dasharray: 1 20;
+  stroke-linecap: round;
+}
+
+.backlight-switch {
+  stroke: transparent;
+}
+
+
+.light-1 {
+  background: rgba(243, 251, 0, 0.5);
+  animation: colorChange 2s;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: rgba(7, 8, 0, 1);
+  }
+
+  50% {
+    background-color: radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 10%, rgba(7, 8, 0, 1) 100%);
+  }
+
+  100% {
+    background-color: radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 20%, rgba(7, 8, 0, 1) 100%);
+  }
+}
+
+.light__circle {
+  stroke-dasharray: 1;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.lamp {
+  fill: #e9d700;
+  position: absolute;
+  top: 65px;
+  right: 65px;
+
+}

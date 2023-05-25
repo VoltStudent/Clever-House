@@ -1,0 +1,17 @@
+.air-conditing__state {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background: radial-gradient(#0b4eb4 20%, #0062ff35);
+    border-radius: 50%;
+  }
+
+  .fan {
+    position: absolute;
+    width: 110px;
+    top: 45px;
+    right: 44px;
+  }
+
+  

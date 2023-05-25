@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Clever House</title>
+</head>
+
+<body>
+    <h1>Welcome Mykhailo</h1>
+    <main>
+        <div class="container">
+            <div class="rooms">
+                <div class="rooms__menu">
+                    <img class="app-logo" src="images/header-logo.svg" alt="Firm Logo">
+                    <select  id="rooms-name">
+                        <option value="kitchen">Kitchen</option>
+                        <option value="bedroom">Bedroom</option>
+                        <option value="bathroom">Bathroom</option>
+                        <option value="living-room">Living Room</option>
+                    </select>
+                    <button class="rooms__button addnewroom">Add New Room</button>
+                    <button class="rooms__button deleteroom">Delete Room</button>
+                </div>
+                <div class="rooms__devices">
+                    <div class="rooms__device option">
+                        <h2>Options</h2>
+                        <button class="add-light">Add Lamp</button>
+
+                        <button class="delete-light">Delete Lamp</button>
+                        <button class="add-air-conditing">Add Air-Conditing</button>
+
+                        <button class="delete-air-conditing">Delete Air-Conditin</button>
+                    </div>
+                </div>
+            </div>
+         
+    </main>
+    <script src="js/rooms.js"></script>
+    <script src="js/light.js"></script>
+    <script src="js/air-conditing.js"></script>
+</body>
+
+</html>

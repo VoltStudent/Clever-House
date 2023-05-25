@@ -1,0 +1,99 @@
+.rooms {
+    display: flex;
+    flex-direction: row;
+}
+
+.app-logo {
+    max-width: 200px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.rooms__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    background-image: var(--div-background);
+    height: 100vh;
+    border-radius: 20px;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.rooms__name {
+    width: 115px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+#rooms-name {
+    width: 130px;
+    height: 32px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-family: "Andika";
+    text-align: center;
+    align-items: center;
+    border: none;
+}
+
+.rooms__name:hover {
+    cursor: pointer;
+    background: var(--hover-background);
+}
+
+.checked {
+    background-color: var(--checked-background);
+}
+
+.rooms__devices {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.rooms__device {
+    width: 300px;
+    height: 420px;
+    background-image: var(--div-background);
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.rooms__button,
+.add-light,
+.delete-light,
+.add-air-conditing,
+.delete-air-conditing {
+    width: 115px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: greenyellow;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+.deleteroom,
+.delete-light,
+.delete-air-conditing {
+    background-color: red; 
+}
+
+.option{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.add-light,
+.delete-light,
+.add-air-conditing,
+.delete-air-conditing {
+    width: 125px;
+}   
+
