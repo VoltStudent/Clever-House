@@ -1,0 +1,145 @@
+
+.signalization-indicator{
+    position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background: radial-gradient(#3aea04 30%, #5eff0035);
+  border-radius: 50%;
+}
+
+
+.signalization__circle {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 2px;
+    stroke-dasharray: 1;
+    stroke-linecap: round;
+}
+.test-situation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.votage {
+    width: 40px;
+}
+
+.move {
+    width: 50px;
+    height: 50px;
+}
+
+.fire-color{
+    animation: fireChange 1s infinite;
+}
+@keyframes fireChange {
+    0% {
+      background: radial-gradient(circle, #b4840b 25%, #ffe10035);
+    }
+  
+    25% {
+        background: radial-gradient(circle, #b4840b 30%, #ffe10035);
+      }
+
+    50% {
+      background: radial-gradient(circle, #b4840b 35%, #ffe10035);
+    }
+
+    75% {
+        background: radial-gradient(circle, #b4840b 40%, #ffe10035);
+      }
+
+    100% {
+      background: radial-gradient(circle, #b4840b 45%, #ffe10035);
+    }
+  }
+
+  .votage-color{
+    animation: voltChange 1s infinite;
+}
+@keyframes voltChange {
+    0% {
+      background: radial-gradient(circle, #013ff9 25%, #ddff0035);
+    }
+  
+    25% {
+        background: radial-gradient(circle, #013ff9 30%, #ddff0035);
+      }
+
+    50% {
+      background: radial-gradient(circle, #013ff9 35%, #ddff0035);
+    }
+
+    75% {
+        background: radial-gradient(circle, #013ff9 40%, #ddff0035);
+      }
+
+    100% {
+      background: radial-gradient(circle, #013ff9 45%, #ddff0035);
+    }
+  }
+
+  .short-circuit-color{
+    animation: shortChange 1s infinite;
+  }
+
+  @keyframes shortChange {
+    0% {
+      background: radial-gradient(circle, #cbf901 25%, #ddff0035);
+    }
+  
+    25% {
+        background: radial-gradient(circle, #cbf901 30%, #ddff0035);
+      }
+
+    50% {
+      background: radial-gradient(circle, #cbf901 35%, #ddff0035);
+    }
+
+    75% {
+        background: radial-gradient(circle, #cbf901 40%, #ddff0035);
+      }
+
+    100% {
+      background: radial-gradient(circle, #cbf901 45%, #ddff0035);
+    }
+  }
+
+  .move-color {
+    animation: moveChange 1s infinite;
+  }
+
+  @keyframes moveChange {
+    0% {
+      background: radial-gradient(circle, #f90101 25%, #ddff0035);
+    }
+  
+    25% {
+        background: radial-gradient(circle, #f90101 30%, #ddff0035);
+      }
+
+    50% {
+      background: radial-gradient(circle, #f90101 35%, #ddff0035);
+    }
+
+    75% {
+        background: radial-gradient(circle, #f90101 40%, #ddff0035);
+      }
+
+    100% {
+      background: radial-gradient(circle, #f90101 45%, #ddff0035);
+    }
+  }
+
+  .alarm-image-fire,
+  .alarm-image-volt,
+  .alarm-image-short-circuit,
+  .alarm-image-move {
+    width: 80px;
+    position: absolute;
+    top: 41px;
+    right: 60px;
+    opacity: 0;
+  }
