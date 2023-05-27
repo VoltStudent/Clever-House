@@ -1,17 +1,30 @@
 .air-conditing__state {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    background: radial-gradient(#0b4eb4 20%, #0062ff35);
-    border-radius: 50%;
-  }
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background: radial-gradient(#0b4eb4 20%, #0062ff35);
+  border-radius: 50%;
+}
 
-  .fan {
-    position: absolute;
-    width: 110px;
-    top: 45px;
-    right: 44px;
-  }
+.fan {
+  position: absolute;
+  width: 110px;
+  top: 45px;
+  right: 44px;
+}
 
-  
+.temperature-input,
+.temperature-output {
+  width: 60px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.temperature-output {
+  margin-left: 10px;
+}

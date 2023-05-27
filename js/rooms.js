@@ -48,6 +48,7 @@ class AddRoom {
         this.addBtn = document.querySelector('.addnewroom');
         this.checkedRoomName = this.roomNames.options[this.roomNames.selectedIndex].textContent;
     }
+
     
     checkNewRoom() {
         this.roomNames.addEventListener('change', () => {

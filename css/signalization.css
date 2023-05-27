@@ -36,23 +36,23 @@
 }
 @keyframes fireChange {
     0% {
-      background: radial-gradient(circle, #b4840b 25%, #ffe10035);
+      background: radial-gradient(circle, #ff7403 25%, #ffe10035);
     }
   
     25% {
-        background: radial-gradient(circle, #b4840b 30%, #ffe10035);
+        background: radial-gradient(circle, #ff7403 30%, #ffe10035);
       }
 
     50% {
-      background: radial-gradient(circle, #b4840b 35%, #ffe10035);
+      background: radial-gradient(circle, #ff7403 35%, #ffe10035);
     }
 
     75% {
-        background: radial-gradient(circle, #b4840b 40%, #ffe10035);
+        background: radial-gradient(circle, #ff7403 40%, #ffe10035);
       }
 
     100% {
-      background: radial-gradient(circle, #b4840b 45%, #ffe10035);
+      background: radial-gradient(circle, #ff7403 45%, #ffe10035);
     }
   }
 

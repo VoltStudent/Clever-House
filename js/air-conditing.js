@@ -103,10 +103,20 @@ class AirConditingCard extends Card {
         buttonContainer.appendChild(lampOnContainer);
         buttonContainer.appendChild(heatCol);
 
+        const temperatureInput = document.createElement('input');
+        temperatureInput.setAttribute('type', 'number');
+        temperatureInput.setAttribute('class', 'temperature-input');
+        const temperatureOutput = document.createElement('input');
+        temperatureOutput.setAttribute('type', 'number');
+        temperatureOutput.setAttribute('class', 'temperature-output');
+
+
         airConditingBox.appendChild(svgCircle);
         airConditingBox.appendChild(buttonContainer);
         airConditingBox.appendChild(progressContainer);
         airConditingBox.appendChild(fan);
+        airConditingBox.appendChild(temperatureInput)
+        airConditingBox.appendChild(temperatureOutput)
 
         this._elem.appendChild(airConditingBox);
     }
@@ -138,51 +148,66 @@ class AirConditingCard extends Card {
         }
     }
 
+
     coldHeat() {
-        const heatColdContainer = document.querySelector('.heat-cold-container')
-        const coldHeatBtns = document.querySelectorAll('.on-heat')
+        const heatColdContainer = document.querySelector('.heat-cold-container');
+        const coldHeatBtns = document.querySelectorAll('.on-heat');
         const coldHeatInput = this._elem.querySelector('input[type="range"]');
-        const coldColors = ['radial-gradient(#0b4eb4 20%, #0062ff35) ',
-            'radial-gradient(#0b4eb4 25%, #0062ff35)',
-            'radial-gradient(#0b4eb4 40%, #0062ff35)',
-            'radial-gradient(#0b4eb4 49%, #0062ff35)',
-            'radial-gradient(#0b4eb4 60%, #0062ff35)',];
-        const warmColors = ['radial-gradient(#fa0000 20%, #ff000035) ',
-            'radial-gradient(#fa0000 25%, #ff000035)',
-            'radial-gradient(#fa0000 40%, #ff000035)',
-            'radial-gradient(#fa0000 49%, #ff000035)',
-            'radial-gradient(#fa0000 60%, #ff000035)'];
+        const temperatureValue = document.querySelector('.temperature-input');
+        const temperatureOutput = document.querySelector('.temperature-output');
+        temperatureValue.value = '25';
+        const coldColors = [
+          'radial-gradient(#0b4eb4 20%, #0062ff35)',
+          'radial-gradient(#0b4eb4 25%, #0062ff35)',
+          'radial-gradient(#0b4eb4 40%, #0062ff35)',
+          'radial-gradient(#0b4eb4 49%, #0062ff35)',
+          'radial-gradient(#0b4eb4 60%, #0062ff35)'
+        ];
+        const warmColors = [
+          'radial-gradient(#fa0000 20%, #ff000035)',
+          'radial-gradient(#fa0000 25%, #ff000035)',
+          'radial-gradient(#fa0000 40%, #ff000035)',
+          'radial-gradient(#fa0000 49%, #ff000035)',
+          'radial-gradient(#fa0000 60%, #ff000035)'
+        ];
 
+        const nums = [1, 2, 3, 4, 5]
+
+        
         for (let i = 0; i < coldHeatBtns.length; ++i) {
-            const coldHeatBtn = coldHeatBtns[i];
-
-            coldHeatBtn.addEventListener('click', () => {
-                coldHeatInput.min = 1;
-                coldHeatInput.max = coldColors.length;
-                coldHeatInput.value = 1;
-                if (heatColdContainer.classList.contains('heat')) {
-                    heatColdContainer.classList.remove('heat');
-                    heatColdContainer.classList.add('cold');
-                    coldHeatBtn.setAttribute('fill', '#0b4eb4');
-                    coldHeatInput.addEventListener('input', (event) => {
-                        const coldHeatLevel = +(event.target.value) - 1;
-                        const lightCircle = this._elem.querySelector('.fan-1');
-                        lightCircle.style.background = coldColors[coldHeatLevel];
-                    });
-                } else if (heatColdContainer.classList.contains('cold')) {
-                    heatColdContainer.classList.remove('cold')
-                    heatColdContainer.classList.add('heat');
-                    coldHeatBtn.setAttribute('fill', '#fa0000');
-                    coldHeatInput.addEventListener('input', (event) => {
-                        const coldHeatLevel = +(event.target.value) - 1;
-                        const lightCircle = this._elem.querySelector('.fan-1');
-                        lightCircle.style.background = warmColors[coldHeatLevel];
-                    });
-                }
-            });
+          const coldHeatBtn = coldHeatBtns[i];
+      
+          coldHeatBtn.addEventListener('click', () => {
+            coldHeatInput.min = 1;
+            coldHeatInput.max = coldColors.length;
+            coldHeatInput.value = 1;
+      
+            if (heatColdContainer.classList.contains('heat')) {
+              heatColdContainer.classList.remove('heat');
+              heatColdContainer.classList.add('cold');
+              coldHeatBtn.setAttribute('fill', '#0b4eb4');
+      
+              coldHeatInput.addEventListener('input', (event) => {
+                const coldHeatLevel = +(event.target.value) - 1;
+                const lightCircle = this._elem.querySelector('.fan-1');
+                lightCircle.style.background = coldColors[coldHeatLevel];
+                temperatureOutput.value = +temperatureValue.value - nums[coldHeatLevel];
+              });
+            } else if (heatColdContainer.classList.contains('cold')) {
+              heatColdContainer.classList.remove('cold');
+              heatColdContainer.classList.add('heat');
+              coldHeatBtn.setAttribute('fill', '#fa0000');
+      
+              coldHeatInput.addEventListener('input', (event) => {
+                const coldHeatLevel = +(event.target.value) - 1;
+                const lightCircle = this._elem.querySelector('.fan-1');
+                lightCircle.style.background = warmColors[coldHeatLevel];
+                temperatureOutput.value = +temperatureValue.value + nums[coldHeatLevel]
+              });
+          }
+          });
         }
-    }
-
+      }
 
 
 

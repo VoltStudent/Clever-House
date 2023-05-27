@@ -13,7 +13,6 @@ class LightCard extends Card {
   constructor(parent) {
     super(parent);
     this._elem.className = 'rooms__device light';
-    this.checkedDevice()
   }
 
   checkedDevice() {
@@ -40,7 +39,7 @@ class LightCard extends Card {
   addTitle() {
     const lightCardTitle = document.createElement('h3');
     lightCardTitle.className = 'rooms__device-title';
-    lightCardTitle.textContent = 'Lamp';
+    lightCardTitle.textContent = "Lamp";
     this._elem.appendChild(lightCardTitle);
   }
 
@@ -205,7 +204,8 @@ class LightCard extends Card {
     card.addTitle();
     card.addProgress();
     card.lightOn();
-    card.backlightOn()
+    card.backlightOn();
+    card.checkedDevice()
     return card;
   }
 }
@@ -284,4 +284,3 @@ window.addEventListener('load', () => {
     });
   }
 });
-
