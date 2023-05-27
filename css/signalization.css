@@ -133,6 +133,14 @@
     }
   }
 
+  .alarm-color{
+    background: url(../images/speaker-svgrepo-com.svg);
+    background-position: 50% 50%;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-color: #f90101;
+  }
+
   .alarm-image-fire,
   .alarm-image-volt,
   .alarm-image-short-circuit,
