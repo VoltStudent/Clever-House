@@ -13,7 +13,23 @@ class LightCard extends Card {
   constructor(parent) {
     super(parent);
     this._elem.className = 'rooms__device light';
+    this.checkedDevice()
   }
+
+  checkedDevice() {
+    this._elem.addEventListener('click', () => {
+      const checkedItems = this.parent.querySelectorAll('.rooms__device.checked');
+      for (let i = 0; i < checkedItems.length; i++) {
+          const checkedItem = checkedItems[i];
+          checkedItem.classList.remove('checked');
+        }
+        
+        if (!this._elem.classList.contains('checked')) {
+            this._elem.classList.add('checked');
+            
+        }
+    });
+}
 
   addCard() {
     const lightCard = document.createElement('div');
@@ -232,8 +248,11 @@ class DeleteLight {
     this.deleteItem = document.querySelector('.delete-light');
 
     this.deleteItem.addEventListener('click', () => {
-      roomsDevices.lastChild.remove();
-      this.deleteSavedLight();
+      const checkedDevice = this.roomsDevices.querySelector('.rooms__device.checked');
+            if (checkedDevice) {
+                this.roomsDevices.removeChild(checkedDevice);
+                this.deleteSavedLight() ;
+            }
     });
 
   }

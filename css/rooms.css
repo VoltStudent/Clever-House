@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 200px;
+    width: 200px;
     background-image: var(--div-background);
     height: 100vh;
     border-radius: 20px;
@@ -47,16 +47,17 @@
     background-color: var(--checked-background);
 }
 
-.rooms__devices {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.rooms__devices,
+.all-rooms__devices{
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 0 20px;
 }
 
 .rooms__device {
     width: 300px;
-    height: 420px;
+    height: 470px;
     background-image: var(--div-background);
     border-radius: 10px;
     border: 1px solid black;
@@ -66,7 +67,8 @@
 .add-light,
 .delete-light,
 .add-air-conditing,
-.delete-air-conditing {
+.delete-air-conditing,
+.delete__btn {
     width: 115px;
     height: 35px;
     border-radius: 20px;
@@ -97,3 +99,8 @@
     width: 125px;
 }   
 
+/* .delete__btn {
+    position: absolute;
+    top: 200px;
+    right: 200px;
+} */

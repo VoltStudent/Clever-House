@@ -12,7 +12,7 @@
     --shadow-color: #749ac2;
     --regulator-color: rgba(0, 0, 255, 1);
     --backlight-color: yellow;
-    --checked-background: yellow;
+    --checked-background: #749ac274;
     background-image: url(../images/background.jpg);
     font-family: "Andika";
     text-align: center;

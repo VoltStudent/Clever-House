@@ -2,6 +2,22 @@ class AirConditingCard extends Card {
     constructor(parent) {
         super(parent);
         this._elem.className = 'rooms__device airconditing';
+        this. checkedDevice();
+    }
+
+    checkedDevice() {
+        this._elem.addEventListener('click', () => {
+          const checkedItems = this.parent.querySelectorAll('.rooms__device.checked');
+          for (let i = 0; i < checkedItems.length; i++) {
+              const checkedItem = checkedItems[i];
+              checkedItem.classList.remove('checked');
+            }
+            
+            if (!this._elem.classList.contains('checked')) {
+                this._elem.classList.add('checked');
+                
+            }
+        });
     }
 
     addCard() {
@@ -220,13 +236,17 @@ class DeleteAirConditing {
         this.deleteItem = document.querySelector('.delete-air-conditing');
 
         this.deleteItem.addEventListener('click', () => {
-            roomsDevices.lastChild.remove();
-            this.deleteSavedLight();
+            const checkedDevice = this.roomsDevices.querySelector('.rooms__device.checked');
+            if (checkedDevice) {
+                this.roomsDevices.removeChild(checkedDevice);
+                this.deleteSavedConditing() ;
+            }
+            
         });
 
     }
 
-    deleteSavedLight() {
+    deleteSavedConditing() {
         const savedairConditingCards = JSON.parse(localStorage.getItem('savedairConditingCards')) || [];
         savedairConditingCards.pop();
         localStorage.setItem('savedairConditingCards', JSON.stringify(savedairConditingCards));
@@ -249,7 +269,7 @@ window.addEventListener('load', () => {
             roomsDevices.appendChild(card._elem);
             card._elem.innerHTML = cardHTML;
             card.coldOn();
-            card.coldHeat()
+            card.coldHeat();
         });
     }
 });
