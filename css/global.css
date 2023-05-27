@@ -13,12 +13,12 @@
     --regulator-color: rgba(0, 0, 255, 1);
     --backlight-color: yellow;
     --checked-background: #749ac274;
-    background-image: url(../images/background.jpg);
+    background-image: url(../images/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg);
     font-family: "Andika";
     text-align: center;
     background-size: cover;
     background-repeat:no-repeat;
-    color: #242837;
+    color: #000000;
     min-height: 100%;
 }
 

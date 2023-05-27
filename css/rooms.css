@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     width: 200px;
-    background-image: var(--div-background);
+    background:rgba(2, 224, 249, 0.652);
     height: 100vh;
     border-radius: 20px;
     gap: 10px;
@@ -53,12 +53,13 @@
     flex-wrap: wrap;
     gap: 20px;
     padding: 0 20px;
+
 }
 
 .rooms__device {
     width: 300px;
     height: 470px;
-    background-image: var(--div-background);
+    background-color:rgba(2, 237, 249, 0.652);
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -99,8 +100,7 @@
     width: 125px;
 }   
 
-/* .delete__btn {
-    position: absolute;
-    top: 200px;
-    right: 200px;
-} */
+#clock {
+    font-size: 23px;
+    font-weight: 700;
+}
