@@ -8,7 +8,7 @@ class Room {
         this._addBtn = document.querySelector('.addnewroom');
         this.parent.insertBefore(this._elem, this._addBtn);
     }
-    
+   
     addRoomName() {
         const roomTitle = this._elem;
         roomTitle.textContent = this.name;
@@ -49,7 +49,11 @@ class AddRoom {
         this.checkedRoomName = this.roomNames.options[this.roomNames.selectedIndex].textContent;
     }
 
-    
+    sdf() {
+        const sdf = document.querySelector('rooms__name.checked');
+        
+        console.log(sdf);
+    }
     checkNewRoom() {
         this.roomNames.addEventListener('change', () => {
             this.checkedRoomName = this.roomNames.options[this.roomNames.selectedIndex].textContent;

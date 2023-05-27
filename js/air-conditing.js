@@ -3,6 +3,7 @@ class AirConditingCard extends Card {
         super(parent);
         this._elem.className = 'rooms__device airconditing';
         this. checkedDevice();
+        this.changeCardTitle = this.changeCardTitle.bind(this);
     }
 
     checkedDevice() {
@@ -32,6 +33,13 @@ class AirConditingCard extends Card {
         airConditingCardTitle.textContent = 'Air-Conditing';
         this._elem.appendChild(airConditingCardTitle);
     }
+
+    changeCardTitle() {
+        const roomNames = document.querySelector('#rooms-name');
+        const selectedRoom = roomNames.options[roomNames.selectedIndex].textContent;
+        const lightCardTitle = this._elem.querySelector('.rooms__device-title');
+        lightCardTitle.textContent = selectedRoom;
+      }
 
     addProgress() {
 
@@ -109,15 +117,14 @@ class AirConditingCard extends Card {
         const temperatureOutput = document.createElement('input');
         temperatureOutput.setAttribute('type', 'number');
         temperatureOutput.setAttribute('class', 'temperature-output');
-
-
+        
         airConditingBox.appendChild(svgCircle);
         airConditingBox.appendChild(buttonContainer);
         airConditingBox.appendChild(progressContainer);
         airConditingBox.appendChild(fan);
         airConditingBox.appendChild(temperatureInput)
         airConditingBox.appendChild(temperatureOutput)
-
+        
         this._elem.appendChild(airConditingBox);
     }
 
@@ -153,9 +160,9 @@ class AirConditingCard extends Card {
         const heatColdContainer = document.querySelector('.heat-cold-container');
         const coldHeatBtns = document.querySelectorAll('.on-heat');
         const coldHeatInput = this._elem.querySelector('input[type="range"]');
-        const temperatureValue = document.querySelector('.temperature-input');
-        const temperatureOutput = document.querySelector('.temperature-output');
-        temperatureValue.value = '25';
+        const temperatureValue = this._elem.querySelector('.temperature-input');
+        const temperatureOutput = this._elem.querySelector('.temperature-output');
+        
         const coldColors = [
           'radial-gradient(#0b4eb4 20%, #0062ff35)',
           'radial-gradient(#0b4eb4 25%, #0062ff35)',
@@ -176,7 +183,9 @@ class AirConditingCard extends Card {
         
         for (let i = 0; i < coldHeatBtns.length; ++i) {
           const coldHeatBtn = coldHeatBtns[i];
-      
+            
+            temperatureValue.value = '25';
+            
           coldHeatBtn.addEventListener('click', () => {
             coldHeatInput.min = 1;
             coldHeatInput.max = coldColors.length;
@@ -219,6 +228,8 @@ class AirConditingCard extends Card {
         card.addProgress();
         card.coldOn();
         card.coldHeat()
+        card.checkedDevice()
+        card.changeCardTitle()
         return card;
     }
 }
@@ -268,8 +279,7 @@ class DeleteAirConditing {
             }
             
         });
-
-    }
+}
 
     deleteSavedConditing() {
         const savedairConditingCards = JSON.parse(localStorage.getItem('savedairConditingCards')) || [];
@@ -287,7 +297,6 @@ const deleteAirConditing = DeleteAirConditing.deleteLight(roomsDevices);
 
 window.addEventListener('load', () => {
     const savedairConditingCards = JSON.parse(localStorage.getItem('savedairConditingCards'));
-    const lightState = JSON.parse(localStorage.getItem('lightState'));
     if (savedairConditingCards) {
         savedairConditingCards.forEach((cardHTML) => {
             let card = AirConditingCard.airConditingCard(roomsDevices);

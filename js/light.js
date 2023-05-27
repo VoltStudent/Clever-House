@@ -13,6 +13,7 @@ class LightCard extends Card {
   constructor(parent) {
     super(parent);
     this._elem.className = 'rooms__device light';
+    this.changeCardTitle = this.changeCardTitle.bind(this);
   }
 
   checkedDevice() {
@@ -25,7 +26,6 @@ class LightCard extends Card {
         
         if (!this._elem.classList.contains('checked')) {
             this._elem.classList.add('checked');
-            
         }
     });
 }
@@ -41,6 +41,13 @@ class LightCard extends Card {
     lightCardTitle.className = 'rooms__device-title';
     lightCardTitle.textContent = "Lamp";
     this._elem.appendChild(lightCardTitle);
+  }
+
+  changeCardTitle() {
+    const roomNames = document.querySelector('#rooms-name');
+    const selectedRoom = roomNames.options[roomNames.selectedIndex].textContent;
+    const lightCardTitle = this._elem.querySelector('.rooms__device-title');
+    lightCardTitle.textContent = selectedRoom;
   }
 
   addProgress() {
@@ -196,6 +203,11 @@ class LightCard extends Card {
         }
       });
     }
+    this.saveState()
+  }
+
+  saveState() {
+    localStorage.setItem('lightCardChecked', this._elem.classList.contains('checked'));
   }
 
   static lightCard(parent) {
@@ -206,6 +218,7 @@ class LightCard extends Card {
     card.lightOn();
     card.backlightOn();
     card.checkedDevice()
+    card.changeCardTitle()
     return card;
   }
 }
@@ -273,7 +286,6 @@ const deleteLight = DeleteLight.deleteLight(roomsDevices);
 
 window.addEventListener('load', () => {
   const savedLightCards = JSON.parse(localStorage.getItem('savedLightCards'));
-  const lightState = JSON.parse(localStorage.getItem('lightState'));
   if (savedLightCards) {
     savedLightCards.forEach((cardHTML) => {
       let card = LightCard.lightCard(roomsDevices);
@@ -284,3 +296,5 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+
