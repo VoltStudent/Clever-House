@@ -4,7 +4,6 @@ class AirConditingCard extends Card {
     constructor(parent) {
         super(parent);
         this._elem.className = 'rooms__device airconditing';
-        this.changeCardTitle = this.changeCardTitle.bind(this);
     }
 
     checkedDevice() {

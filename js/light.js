@@ -13,7 +13,6 @@ class LightCard extends Card {
   constructor(parent) {
     super(parent);
     this._elem.className = 'rooms__device light';
-    this.changeCardTitle = this.changeCardTitle.bind(this);
   }
 
   checkedDevice() {
