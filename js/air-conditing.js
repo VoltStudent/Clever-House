@@ -2,21 +2,20 @@ class AirConditingCard extends Card {
     constructor(parent) {
         super(parent);
         this._elem.className = 'rooms__device airconditing';
-        this. checkedDevice();
         this.changeCardTitle = this.changeCardTitle.bind(this);
     }
 
     checkedDevice() {
         this._elem.addEventListener('click', () => {
-          const checkedItems = this.parent.querySelectorAll('.rooms__device.checked');
-          for (let i = 0; i < checkedItems.length; i++) {
-              const checkedItem = checkedItems[i];
-              checkedItem.classList.remove('checked');
+            const checkedItems = this.parent.querySelectorAll('.rooms__device.checked');
+            for (let i = 0; i < checkedItems.length; i++) {
+                const checkedItem = checkedItems[i];
+                checkedItem.classList.remove('checked');
             }
-            
+
             if (!this._elem.classList.contains('checked')) {
                 this._elem.classList.add('checked');
-                
+
             }
         });
     }
@@ -39,7 +38,7 @@ class AirConditingCard extends Card {
         const selectedRoom = roomNames.options[roomNames.selectedIndex].textContent;
         const lightCardTitle = this._elem.querySelector('.rooms__device-title');
         lightCardTitle.textContent = selectedRoom;
-      }
+    }
 
     addProgress() {
 
@@ -114,17 +113,18 @@ class AirConditingCard extends Card {
         const temperatureInput = document.createElement('input');
         temperatureInput.setAttribute('type', 'number');
         temperatureInput.setAttribute('class', 'temperature-input');
+
         const temperatureOutput = document.createElement('input');
         temperatureOutput.setAttribute('type', 'number');
         temperatureOutput.setAttribute('class', 'temperature-output');
-        
+
         airConditingBox.appendChild(svgCircle);
         airConditingBox.appendChild(buttonContainer);
         airConditingBox.appendChild(progressContainer);
         airConditingBox.appendChild(fan);
         airConditingBox.appendChild(temperatureInput)
         airConditingBox.appendChild(temperatureOutput)
-        
+
         this._elem.appendChild(airConditingBox);
     }
 
@@ -155,71 +155,67 @@ class AirConditingCard extends Card {
         }
     }
 
-
     coldHeat() {
         const heatColdContainer = document.querySelector('.heat-cold-container');
         const coldHeatBtns = document.querySelectorAll('.on-heat');
         const coldHeatInput = this._elem.querySelector('input[type="range"]');
         const temperatureValue = this._elem.querySelector('.temperature-input');
         const temperatureOutput = this._elem.querySelector('.temperature-output');
-        
+
         const coldColors = [
-          'radial-gradient(#0b4eb4 20%, #0062ff35)',
-          'radial-gradient(#0b4eb4 25%, #0062ff35)',
-          'radial-gradient(#0b4eb4 40%, #0062ff35)',
-          'radial-gradient(#0b4eb4 49%, #0062ff35)',
-          'radial-gradient(#0b4eb4 60%, #0062ff35)'
+            'radial-gradient(#0b4eb4 20%, #0062ff35)',
+            'radial-gradient(#0b4eb4 25%, #0062ff35)',
+            'radial-gradient(#0b4eb4 40%, #0062ff35)',
+            'radial-gradient(#0b4eb4 49%, #0062ff35)',
+            'radial-gradient(#0b4eb4 60%, #0062ff35)'
         ];
         const warmColors = [
-          'radial-gradient(#fa0000 20%, #ff000035)',
-          'radial-gradient(#fa0000 25%, #ff000035)',
-          'radial-gradient(#fa0000 40%, #ff000035)',
-          'radial-gradient(#fa0000 49%, #ff000035)',
-          'radial-gradient(#fa0000 60%, #ff000035)'
+            'radial-gradient(#fa0000 20%, #ff000035)',
+            'radial-gradient(#fa0000 25%, #ff000035)',
+            'radial-gradient(#fa0000 40%, #ff000035)',
+            'radial-gradient(#fa0000 49%, #ff000035)',
+            'radial-gradient(#fa0000 60%, #ff000035)'
         ];
 
         const nums = [1, 2, 3, 4, 5]
 
-        
+
         for (let i = 0; i < coldHeatBtns.length; ++i) {
-          const coldHeatBtn = coldHeatBtns[i];
-            
+            const coldHeatBtn = coldHeatBtns[i];
+
             temperatureValue.value = '25';
-            
-          coldHeatBtn.addEventListener('click', () => {
-            coldHeatInput.min = 1;
-            coldHeatInput.max = coldColors.length;
-            coldHeatInput.value = 1;
-      
-            if (heatColdContainer.classList.contains('heat')) {
-              heatColdContainer.classList.remove('heat');
-              heatColdContainer.classList.add('cold');
-              coldHeatBtn.setAttribute('fill', '#0b4eb4');
-      
-              coldHeatInput.addEventListener('input', (event) => {
-                const coldHeatLevel = +(event.target.value) - 1;
-                const lightCircle = this._elem.querySelector('.fan-1');
-                lightCircle.style.background = coldColors[coldHeatLevel];
-                temperatureOutput.value = +temperatureValue.value - nums[coldHeatLevel];
-              });
-            } else if (heatColdContainer.classList.contains('cold')) {
-              heatColdContainer.classList.remove('cold');
-              heatColdContainer.classList.add('heat');
-              coldHeatBtn.setAttribute('fill', '#fa0000');
-      
-              coldHeatInput.addEventListener('input', (event) => {
-                const coldHeatLevel = +(event.target.value) - 1;
-                const lightCircle = this._elem.querySelector('.fan-1');
-                lightCircle.style.background = warmColors[coldHeatLevel];
-                temperatureOutput.value = +temperatureValue.value + nums[coldHeatLevel]
-              });
-          }
-          });
+
+            coldHeatBtn.addEventListener('click', () => {
+                coldHeatInput.min = 1;
+                coldHeatInput.max = coldColors.length;
+                coldHeatInput.value = 1;
+
+                if (heatColdContainer.classList.contains('heat')) {
+                    heatColdContainer.classList.remove('heat');
+                    heatColdContainer.classList.add('cold');
+                    coldHeatBtn.setAttribute('fill', '#0b4eb4');
+
+                    coldHeatInput.addEventListener('input', (event) => {
+                        const coldHeatLevel = +(event.target.value) - 1;
+                        const lightCircle = this._elem.querySelector('.fan-1');
+                        lightCircle.style.background = coldColors[coldHeatLevel];
+                        temperatureOutput.value = +temperatureValue.value - nums[coldHeatLevel];
+                    });
+                } else if (heatColdContainer.classList.contains('cold')) {
+                    heatColdContainer.classList.remove('cold');
+                    heatColdContainer.classList.add('heat');
+                    coldHeatBtn.setAttribute('fill', '#fa0000');
+
+                    coldHeatInput.addEventListener('input', (event) => {
+                        const coldHeatLevel = +(event.target.value) - 1;
+                        const lightCircle = this._elem.querySelector('.fan-1');
+                        lightCircle.style.background = warmColors[coldHeatLevel];
+                        temperatureOutput.value = +temperatureValue.value + nums[coldHeatLevel]
+                    });
+                }
+            });
         }
-      }
-
-
-
+    }
 
     static airConditingCard(parent) {
         const card = new AirConditingCard(parent);
@@ -233,9 +229,6 @@ class AirConditingCard extends Card {
         return card;
     }
 }
-
-
-
 
 class AddAirConditing {
 
@@ -258,7 +251,7 @@ class AddAirConditing {
         localStorage.setItem('savedairConditingCards', JSON.stringify(savedairConditingCards));
     }
 
-    static addLight(roomsDevices) {
+    static addConditing(roomsDevices) {
         const cardAdder = new AddAirConditing(roomsDevices);
         cardAdder.addCard();
         return cardAdder;
@@ -270,16 +263,18 @@ class DeleteAirConditing {
     constructor(roomsDevices) {
         this.roomsDevices = roomsDevices;
         this.deleteItem = document.querySelector('.delete-air-conditing');
+    }
 
+    deleteCard() {
         this.deleteItem.addEventListener('click', () => {
             const checkedDevice = this.roomsDevices.querySelector('.rooms__device.checked');
             if (checkedDevice) {
                 this.roomsDevices.removeChild(checkedDevice);
-                this.deleteSavedConditing() ;
+                this.deleteSavedConditing();
             }
-            
+
         });
-}
+    }
 
     deleteSavedConditing() {
         const savedairConditingCards = JSON.parse(localStorage.getItem('savedairConditingCards')) || [];
@@ -287,13 +282,14 @@ class DeleteAirConditing {
         localStorage.setItem('savedairConditingCards', JSON.stringify(savedairConditingCards));
     }
 
-    static deleteLight(roomsDevices) {
+    static deleteConditing(roomsDevices) {
         const cardDelete = new DeleteAirConditing(roomsDevices);
+        cardDelete.deleteCard()
         return cardDelete;
     }
 }
-const addAirConditing = AddAirConditing.addLight(roomsDevices);
-const deleteAirConditing = DeleteAirConditing.deleteLight(roomsDevices);
+const addAirConditing = AddAirConditing.addConditing(roomsDevices);
+const deleteAirConditing = DeleteAirConditing.deleteConditing(roomsDevices);
 
 window.addEventListener('load', () => {
     const savedairConditingCards = JSON.parse(localStorage.getItem('savedairConditingCards'));

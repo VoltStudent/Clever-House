@@ -5,7 +5,6 @@
 
 .app-logo {
     width: 200px;
-    margin-bottom: 10px;
     margin-top: 20px;
 }
 
@@ -14,11 +13,11 @@
     flex-direction: column;
     align-items: center;
     width: 200px;
-    background:rgba(2, 224, 249, 0.652);
+    background: var(--rooms-menu-bgnd);
     height: 100vh;
     border-radius: 20px;
     gap: 10px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.445);
 }
 
 .rooms__name {
@@ -29,13 +28,14 @@
 
 #rooms-name {
     width: 140px;
-    height: 32px;
+    height: 35px;
     border-radius: 20px;
     font-size: 18px;
     font-family: "Andika";
     text-align: center;
     align-items: center;
     border: none;
+    padding-bottom: 4px;
 }
 
 .rooms__name:hover {
@@ -59,9 +59,9 @@
 .rooms__device {
     width: 300px;
     height: 470px;
-    background-color:rgba(2, 237, 249, 0.652);
+    background-color: var(--rooms-device-bgnd);
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.445);
 }
 
 .rooms__button,
@@ -73,7 +73,7 @@
     width: 115px;
     height: 35px;
     border-radius: 20px;
-    background-color: greenyellow;
+    background-color: var(--button-add-color);
     border: none;
     cursor: pointer;
     box-shadow: 2px 2px 4px var(--shadow-color);
@@ -82,7 +82,7 @@
 .deleteroom,
 .delete-light,
 .delete-air-conditing {
-    background-color: red; 
+    background-color: var(--button-delete-color); 
 }
 
 .option{

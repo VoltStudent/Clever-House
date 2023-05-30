@@ -6,19 +6,25 @@
 }
 
 :root {
-    --div-background: yellow;
+    --lamp-color: #e9d700;
+    --light-on: rgba(243, 251, 0, 0.5);
+    --light-state-bgnd: radial-gradient(#000 10%, #ffff0035);
+    --rooms-menu-bgnd: rgba(2, 224, 249, 0.652);
     --hover-background: #00b4d8;
-    --button-color: blue;
+    --air-conditing-state: radial-gradient(#0b4eb4 20%, #0062ff35);
+    --indicator-bgnd: radial-gradient(#3aea04 30%, #5eff0035);
+    --button-add-color:  rgb(91, 251, 5);
+    --rooms-device-bgnd: rgba(2, 237, 249, 0.652);
+    --button-delete-color:  rgb(254, 10, 10);
     --shadow-color: #749ac2;
-    --regulator-color: rgba(0, 0, 255, 1);
     --backlight-color: yellow;
-    --checked-background: #749ac274;
+    --checked-background: #02a2fe74;
     background-image: url(../images/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg);
     font-family: "Andika";
     text-align: center;
     background-size: cover;
     background-repeat:no-repeat;
-    color: #000000;
+    color: #2a2424;
     min-height: 100%;
 }
 
@@ -35,6 +41,11 @@ a {
 
 ul {
     list-style-type: none;
+}
+
+h1 {
+    color:#02183c;
+    font-size: 40px;
 }
 
 .container {

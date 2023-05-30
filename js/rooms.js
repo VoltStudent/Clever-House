@@ -1,5 +1,5 @@
 class Room {
-    
+
     constructor(parent, name) {
         this.parent = parent;
         this.name = name;
@@ -8,40 +8,35 @@ class Room {
         this._addBtn = document.querySelector('.addnewroom');
         this.parent.insertBefore(this._elem, this._addBtn);
     }
-   
+
     addRoomName() {
         const roomTitle = this._elem;
         roomTitle.textContent = this.name;
     }
-    
+
     checkedRoom() {
         this._elem.addEventListener('click', () => {
-          const checkedItems = this.parent.querySelectorAll('.rooms__name.checked');
-          for (let i = 0; i < checkedItems.length; i++) {
-              const checkedItem = checkedItems[i];
-              checkedItem.classList.remove('checked');
+            const checkedItems = this.parent.querySelectorAll('.rooms__name.checked');
+            for (let i = 0; i < checkedItems.length; i++) {
+                const checkedItem = checkedItems[i];
+                checkedItem.classList.remove('checked');
             }
-            
+
             if (!this._elem.classList.contains('checked')) {
                 this._elem.classList.add('checked');
-                
             }
         });
     }
 
-    
-    
     static createRoom(parent, name) {
         const room = new Room(parent, name);
         room.checkedRoom();
         return room;
     }
-    
 }
 
-
 class AddRoom {
-    
+
     constructor(roomsMenu, roomNames) {
         this.roomsMenu = roomsMenu;
         this.roomNames = roomNames;
@@ -49,11 +44,6 @@ class AddRoom {
         this.checkedRoomName = this.roomNames.options[this.roomNames.selectedIndex].textContent;
     }
 
-    sdf() {
-        const sdf = document.querySelector('rooms__name.checked');
-        
-        console.log(sdf);
-    }
     checkNewRoom() {
         this.roomNames.addEventListener('change', () => {
             this.checkedRoomName = this.roomNames.options[this.roomNames.selectedIndex].textContent;
@@ -65,7 +55,7 @@ class AddRoom {
             this.saveRoom(newRoom);
         });
     }
-    
+
     saveRoom(room) {
         const savedRooms = JSON.parse(localStorage.getItem('savedRoom')) || [];
         savedRooms.push(room._elem.innerHTML);
@@ -78,6 +68,7 @@ class AddRoom {
         return roomAdder;
     }
 }
+
 class DeleteRom {
 
     constructor(roomsMenu, deleteBtn) {
@@ -91,7 +82,6 @@ class DeleteRom {
                 this.deleteLastSavedRoom();
             }
         });
-
     }
 
     deleteLastSavedRoom() {
@@ -106,18 +96,16 @@ class DeleteRom {
     }
 }
 
-
-
 const roomsMenu = document.querySelector('.rooms__menu');
 const roomNames = document.querySelector('#rooms-name');
 const deleteBtn = document.querySelector('.deleteroom');
 
-
 const roomAdder = AddRoom.addRoom(roomsMenu, roomNames);
 const roomDeleter = DeleteRom.deleteRoom(roomsMenu, deleteBtn);
+
 window.addEventListener('load', () => {
     const savedRooms = JSON.parse(localStorage.getItem('savedRoom'));
-    
+
     if (savedRooms) {
         savedRooms.forEach(room => {
             const newRoom = Room.createRoom(roomsMenu, '');

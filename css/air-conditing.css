@@ -3,7 +3,7 @@
   width: 200px;
   height: 200px;
   margin: auto;
-  background: radial-gradient(#0b4eb4 20%, #0062ff35);
+  background: var(--air-conditing-state);
   border-radius: 50%;
 }
 

@@ -3,9 +3,8 @@
   width: 200px;
   height: 200px;
   margin: auto;
-  background: radial-gradient(#000 10%, #ffff0035);
+  background: var(--light-state-bgnd);
   border-radius: 50%;
-  fill: #3cff00;
 }
 
 .light__backlight,
@@ -23,7 +22,7 @@
 
 
 .light-1 {
-  background: rgba(243, 251, 0, 0.5);
+  background: var(--light-on);
   animation: colorChange 2s;
 }
 
@@ -50,9 +49,8 @@
   justify-content: space-between;
 }
 
-
 .lamp {
-  fill: #e9d700;
+  fill: var(--lamp-color);
   position: absolute;
   top: 65px;
   right: 65px;

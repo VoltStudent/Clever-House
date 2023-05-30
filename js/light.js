@@ -20,15 +20,15 @@ class LightCard extends Card {
     this._elem.addEventListener('click', () => {
       const checkedItems = this.parent.querySelectorAll('.rooms__device.checked');
       for (let i = 0; i < checkedItems.length; i++) {
-          const checkedItem = checkedItems[i];
-          checkedItem.classList.remove('checked');
-        }
-        
-        if (!this._elem.classList.contains('checked')) {
-            this._elem.classList.add('checked');
-        }
+        const checkedItem = checkedItems[i];
+        checkedItem.classList.remove('checked');
+      }
+
+      if (!this._elem.classList.contains('checked')) {
+        this._elem.classList.add('checked');
+      }
     });
-}
+  }
 
   addCard() {
     const lightCard = document.createElement('div');
@@ -147,10 +147,10 @@ class LightCard extends Card {
     const lampElements = this._elem.querySelectorAll('.lamp');
     const brightnessInput = this._elem.querySelector('input[type="range"]');
     const brightnessColors = ['radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 20%, rgba(7, 8, 0, 1) 100%)',
-                              'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 25%, rgba(7, 8, 0, 1) 100%)', 
-                              'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 40%, rgba(7, 8, 0, 1) 100%)',
-                              'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 49%, rgba(7, 8, 0, 1) 100%)',
-                              'rgba(243, 251, 0, 0.5)',];
+      'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 25%, rgba(7, 8, 0, 1) 100%)',
+      'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 40%, rgba(7, 8, 0, 1) 100%)',
+      'radial-gradient(circle, rgba(247, 236, 0, 1) 0%, rgba(238, 244, 7, 0.49343487394957986) 49%, rgba(7, 8, 0, 1) 100%)',
+      'rgba(243, 251, 0, 0.5)',];
 
     for (let i = 0; i < lightButtons.length; ++i) {
       const lightOnButton = lightButtons[i];
@@ -203,11 +203,6 @@ class LightCard extends Card {
         }
       });
     }
-    this.saveState()
-  }
-
-  saveState() {
-    localStorage.setItem('lightCardChecked', this._elem.classList.contains('checked'));
   }
 
   static lightCard(parent) {
@@ -259,15 +254,16 @@ class DeleteLight {
   constructor(roomsDevices) {
     this.roomsDevices = roomsDevices;
     this.deleteItem = document.querySelector('.delete-light');
+  }
 
+  deleteLight() {
     this.deleteItem.addEventListener('click', () => {
       const checkedDevice = this.roomsDevices.querySelector('.rooms__device.checked');
-            if (checkedDevice) {
-                this.roomsDevices.removeChild(checkedDevice);
-                this.deleteSavedLight() ;
-            }
+      if (checkedDevice) {
+        this.roomsDevices.removeChild(checkedDevice);
+        this.deleteSavedLight();
+      }
     });
-
   }
 
   deleteSavedLight() {
@@ -278,9 +274,11 @@ class DeleteLight {
 
   static deleteLight(roomsDevices) {
     const cardDelete = new DeleteLight(roomsDevices);
+    cardDelete.deleteLight();
     return cardDelete;
   }
 }
+
 const addLight = AddLight.addLight(roomsDevices);
 const deleteLight = DeleteLight.deleteLight(roomsDevices);
 
