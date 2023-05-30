@@ -1,3 +1,5 @@
+import {Card, roomsDevices } from './light.js'
+
 class AirConditingCard extends Card {
     constructor(parent) {
         super(parent);
@@ -165,19 +167,29 @@ class AirConditingCard extends Card {
         const coldColors = [
             'radial-gradient(#0b4eb4 20%, #0062ff35)',
             'radial-gradient(#0b4eb4 25%, #0062ff35)',
+            'radial-gradient(#0b4eb4 30%, #0062ff35)',
+            'radial-gradient(#0b4eb4 35%, #0062ff35)',
             'radial-gradient(#0b4eb4 40%, #0062ff35)',
-            'radial-gradient(#0b4eb4 49%, #0062ff35)',
-            'radial-gradient(#0b4eb4 60%, #0062ff35)'
+            'radial-gradient(#0b4eb4 45%, #0062ff35)',
+            'radial-gradient(#0b4eb4 50%, #0062ff35)',
+            'radial-gradient(#0b4eb4 55%, #0062ff35)',
+            'radial-gradient(#0b4eb4 60%, #0062ff35)',
+            'radial-gradient(#0b4eb4 65%, #0062ff35)',
         ];
         const warmColors = [
             'radial-gradient(#fa0000 20%, #ff000035)',
             'radial-gradient(#fa0000 25%, #ff000035)',
+            'radial-gradient(#fa0000 30%, #ff000035)',
+            'radial-gradient(#fa0000 35%, #ff000035)',
             'radial-gradient(#fa0000 40%, #ff000035)',
-            'radial-gradient(#fa0000 49%, #ff000035)',
-            'radial-gradient(#fa0000 60%, #ff000035)'
+            'radial-gradient(#fa0000 45%, #ff000035)',
+            'radial-gradient(#fa0000 50%, #ff000035)',
+            'radial-gradient(#fa0000 55%, #ff000035)',
+            'radial-gradient(#fa0000 60%, #ff000035)',
+            'radial-gradient(#fa0000 65%, #ff000035)',
         ];
 
-        const nums = [1, 2, 3, 4, 5]
+        const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
         for (let i = 0; i < coldHeatBtns.length; ++i) {

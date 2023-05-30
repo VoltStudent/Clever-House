@@ -18,12 +18,13 @@
     --button-delete-color:  rgb(254, 10, 10);
     --shadow-color: #749ac2;
     --backlight-color: yellow;
-    --checked-background: #02a2fe74;
+    --checked-background: #56a4eebb;
     background-image: url(../images/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg);
     font-family: "Andika";
     text-align: center;
     background-size: cover;
     background-repeat:no-repeat;
+    font-weight: 700;
     color: #2a2424;
     min-height: 100%;
 }

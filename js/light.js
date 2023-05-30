@@ -1,4 +1,4 @@
-class Card {
+export class Card {
 
   constructor(parent) {
     this.parent = parent;
@@ -219,7 +219,7 @@ class LightCard extends Card {
 }
 
 
-const roomsDevices = document.querySelector('.rooms__devices');
+export const roomsDevices = document.querySelector('.rooms__devices');
 
 class AddLight {
 
