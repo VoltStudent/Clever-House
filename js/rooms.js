@@ -71,10 +71,12 @@ class AddRoom {
 
 class DeleteRom {
 
-    constructor(roomsMenu, deleteBtn) {
+    constructor(roomsMenu) {
         this.roomsMenu = roomsMenu;
-        this.deleteBtn = deleteBtn;
+        this.deleteBtn = document.querySelector('.deleteroom');
+    }
 
+    deleteRoom() {
         this.deleteBtn.addEventListener('click', () => {
             const checkedRoom = this.roomsMenu.querySelector('.rooms__name.checked');
             if (checkedRoom) {
@@ -92,16 +94,16 @@ class DeleteRom {
 
     static deleteRoom(roomsMenu, deleteBtn) {
         const roomDelete = new DeleteRom(roomsMenu, deleteBtn);
+        roomDelete.deleteRoom();
         return roomDelete;
     }
 }
 
 const roomsMenu = document.querySelector('.rooms__menu');
 const roomNames = document.querySelector('#rooms-name');
-const deleteBtn = document.querySelector('.deleteroom');
 
 const roomAdder = AddRoom.addRoom(roomsMenu, roomNames);
-const roomDeleter = DeleteRom.deleteRoom(roomsMenu, deleteBtn);
+const roomDeleter = DeleteRom.deleteRoom(roomsMenu);
 
 window.addEventListener('load', () => {
     const savedRooms = JSON.parse(localStorage.getItem('savedRoom'));
